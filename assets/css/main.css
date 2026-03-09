@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Base ──────────────────────────────────────────────────── */
+@layer base {
+  html {
+    background-color: #0A1628;
+    color: #E8E8F0;
+    color-scheme: dark;
+  }
+
+  ::selection {
+    background-color: rgba(0, 229, 255, 0.15);
+    color: #00E5FF;
+  }
+
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: #060C18; }
+  ::-webkit-scrollbar-thumb { background: #0D1E38; border-radius: 2px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(0, 229, 255, 0.2); }
+}
+
+/* ─── Light mode overrides (after utilities so they win) ─────── */
+@media (prefers-color-scheme: light) {
+  html {
+    background-color: #EEF1F7;
+    color: #0D1829;
+    color-scheme: light;
+  }
+
+  /* Circuit background vars */
+  :root {
+    --circuit-trace:   #9BB5D0;
+    --circuit-via:     #7A9AB8;
+    --circuit-bg:      #EEF1F7;
+    --circuit-signal:  #006E88;
+  }
+
+  /* Background surfaces */
+  .bg-bg      { background-color: #EEF1F7; }
+  .bg-surface { background-color: #FFFFFF; }
+
+  /* Borders */
+  .border-border { border-color: #C0CEDF; }
+
+  /* Text */
+  .text-text-primary   { color: #0D1829; }
+  .text-text-secondary { color: #3A4A6A; }
+  .text-text-muted     { color: #7A8A9A; }
+
+  /* Cyan accent — darker for readability on light bg */
+  .text-cyan   { color: #006E88; }
+  .border-cyan { border-color: #006E88; }
+
+  /* Prose content */
+  .prose {
+    --tw-prose-body:          #0D1829;
+    --tw-prose-headings:      #0D1829;
+    --tw-prose-lead:          #3A4A6A;
+    --tw-prose-links:         #006E88;
+    --tw-prose-bold:          #0D1829;
+    --tw-prose-counters:      #006E88;
+    --tw-prose-bullets:       #006E88;
+    --tw-prose-hr:            #C0CEDF;
+    --tw-prose-quotes:        #3A4A6A;
+    --tw-prose-quote-borders: #006E88;
+    --tw-prose-code:          #006E88;
+    --tw-prose-pre-code:      #0D1829;
+    --tw-prose-pre-bg:        #FFFFFF;
+  }
+
+  /* Footer border */
+  .border-t { border-color: #C0CEDF; }
+}
+
+/* ─── Circuit background CSS vars (dark mode defaults) ──────── */
+:root {
+  --circuit-trace:  #1E4080;
+  --circuit-via:    #1E4080;
+  --circuit-bg:     #0A1628;
+  --circuit-signal: #00E5FF;
+}
+
+/* ─── Signal divider ────────────────────────────────────────── */
+.signal-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 2rem 0;
+}
+.signal-divider::before,
+.signal-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0,229,255,0.3), transparent);
+}
+.signal-divider span {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  color: #00E5FF;
+  opacity: 0.5;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+@media (prefers-color-scheme: light) {
+  .signal-divider::before,
+  .signal-divider::after {
+    background: linear-gradient(90deg, transparent, rgba(0,110,136,0.3), transparent);
+  }
+  .signal-divider span { color: #006E88; }
+}

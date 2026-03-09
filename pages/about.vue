@@ -28,8 +28,8 @@
         <div v-for="item in stack" :key="item.label" class="flex items-center gap-2">
           <span class="text-cyan font-mono text-xs opacity-60">▸</span>
           <div>
-            <div class="font-mono text-xs text-text-primary">{{ item.label }}</div>
-            <div class="font-mono text-xs text-text-muted">{{ item.desc }}</div>
+            <div class="font-mono text-xs text-white">{{ item.label }}</div>
+            <div class="font-mono text-xs text-text-secondary">{{ item.desc }}</div>
           </div>
         </div>
       </div>

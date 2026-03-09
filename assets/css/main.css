@@ -99,8 +99,8 @@
 .signal-divider span {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.65rem;
-  color: #00E5FF;
-  opacity: 0.5;
+  color: #FFFFFF;
+  opacity: 1;
   letter-spacing: 0.2em;
   text-transform: uppercase;
 }
@@ -110,5 +110,5 @@
   .signal-divider::after {
     background: linear-gradient(90deg, transparent, rgba(0,110,136,0.3), transparent);
   }
-  .signal-divider span { color: #006E88; }
+  .signal-divider span { color: #0D1829; }
 }

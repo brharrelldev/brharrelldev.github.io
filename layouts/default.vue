@@ -13,18 +13,11 @@
           </span>
         </NuxtLink>
         <nav class="mt-4 flex gap-6">
-          <NuxtLink
-            to="/"
-            class="font-mono text-xs text-text-secondary hover:text-cyan transition-colors tracking-wider uppercase"
-          >
-            index
-          </NuxtLink>
-          <NuxtLink
-            to="/about"
-            class="font-mono text-xs text-text-secondary hover:text-cyan transition-colors tracking-wider uppercase"
-          >
-            about
-          </NuxtLink>
+          <NuxtLink to="/" class="font-mono text-xs text-text-secondary hover:text-cyan transition-colors tracking-wider uppercase">index</NuxtLink>
+          <NuxtLink to="/mod-e" class="font-mono text-xs text-text-secondary hover:text-cyan transition-colors tracking-wider uppercase">mod-e</NuxtLink>
+          <NuxtLink to="/kv-store" class="font-mono text-xs text-text-secondary hover:text-cyan transition-colors tracking-wider uppercase">kv-store</NuxtLink>
+          <NuxtLink to="/thoughts" class="font-mono text-xs text-text-secondary hover:text-cyan transition-colors tracking-wider uppercase">thoughts</NuxtLink>
+          <NuxtLink to="/about" class="font-mono text-xs text-text-secondary hover:text-cyan transition-colors tracking-wider uppercase">about</NuxtLink>
         </nav>
       </header>
 

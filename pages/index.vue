@@ -1,66 +1,88 @@
 <script setup lang="ts">
-const { data: posts } = await useAsyncData('posts', () =>
-  queryContent('/blog').sort({ date: -1 }).find()
+import { sections } from '~/utils/sections'
+
+// Fetch post counts per section and recent posts
+const { data: allPosts } = await useAsyncData('all-posts', () =>
+  queryContent()
+    .where({ _dir: { $in: ['mod-e', 'kv-store', 'thoughts'] } })
+    .sort({ date: -1 })
+    .limit(5)
+    .find()
 )
+
+function postCount(slug: string) {
+  return allPosts.value?.filter(p => p._dir === slug).length ?? 0
+}
 </script>
 
 <template>
   <NuxtLayout>
-    <div>
-      <!-- Intro -->
-      <div class="mb-16">
-        <h1 class="font-mono text-2xl text-text-primary font-medium mb-3">
-          brandon harrell
-        </h1>
-        <p class="text-text-secondary text-sm leading-relaxed">
-          systems engineer. neuromorphic computing. event-driven architecture.
-          writing about the intersection of signals, systems, and synthetic minds.
-        </p>
-      </div>
-
-      <!-- Signal divider -->
-      <div class="signal-divider">
-        <span>transmissions</span>
-      </div>
-
-      <!-- Post list -->
-      <ul class="mt-8 space-y-8">
-        <li v-for="post in posts" :key="post._path">
-          <NuxtLink :to="post._path" class="group block">
-            <div class="flex items-start gap-3">
-              <span class="font-mono text-cyan text-xs mt-1 opacity-40 group-hover:opacity-100 transition-opacity flex-shrink-0">
-                ▸
-              </span>
-              <div>
-                <h2 class="font-mono text-text-primary text-base font-medium group-hover:text-cyan transition-colors">
-                  {{ post.title }}
-                </h2>
-                <div class="flex items-center gap-3 mt-1">
-                  <time class="font-mono text-xs text-text-muted">
-                    {{ post.date }}
-                  </time>
-                  <span v-if="post.tags" class="flex gap-2">
-                    <span
-                      v-for="tag in post.tags"
-                      :key="tag"
-                      class="font-mono text-xs text-cyan opacity-50"
-                    >
-                      #{{ tag }}
-                    </span>
-                  </span>
-                </div>
-                <p v-if="post.description" class="text-text-secondary text-sm mt-2 leading-relaxed">
-                  {{ post.description }}
-                </p>
-              </div>
-            </div>
-          </NuxtLink>
-        </li>
-      </ul>
-
-      <div v-if="!posts?.length" class="font-mono text-text-muted text-sm">
-        <span class="text-cyan opacity-40">_</span> no transmissions yet.
-      </div>
+    <!-- Intro -->
+    <div class="mb-16">
+      <h1 class="font-mono text-2xl text-text-primary font-medium mb-3">
+        brandon harrell
+      </h1>
+      <p class="text-text-secondary text-sm leading-relaxed max-w-lg">
+        systems engineer. neuromorphic computing. event-driven architecture.
+        writing about the intersection of signals, systems, and synthetic minds.
+      </p>
     </div>
+
+    <!-- Projects -->
+    <div class="signal-divider">
+      <span>projects</span>
+    </div>
+
+    <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
+      <NuxtLink
+        v-for="section in sections"
+        :key="section.slug"
+        :to="`/${section.slug}`"
+        class="group block border border-border rounded p-5 hover:border-cyan transition-colors duration-200"
+      >
+        <div class="flex items-start justify-between mb-3">
+          <span class="font-mono text-sm text-cyan group-hover:text-cyan font-medium">
+            {{ section.title }}
+          </span>
+          <span class="font-mono text-xs text-text-muted">
+            {{ postCount(section.slug) }} {{ postCount(section.slug) === 1 ? 'post' : 'posts' }}
+          </span>
+        </div>
+        <p class="text-text-secondary text-xs leading-relaxed">
+          {{ section.description }}
+        </p>
+        <div class="mt-3 flex gap-2 flex-wrap">
+          <span
+            v-for="tag in section.tags"
+            :key="tag"
+            class="font-mono text-xs text-cyan opacity-50"
+          >
+            #{{ tag }}
+          </span>
+        </div>
+      </NuxtLink>
+    </div>
+
+    <!-- Recent posts -->
+    <div class="signal-divider mt-16">
+      <span>recent</span>
+    </div>
+
+    <ul class="mt-8 space-y-6">
+      <li v-for="post in allPosts" :key="post._path">
+        <NuxtLink :to="post._path" class="group flex items-start gap-3">
+          <span class="font-mono text-cyan text-xs mt-0.5 opacity-40 group-hover:opacity-100 transition-opacity flex-shrink-0">▸</span>
+          <div>
+            <div class="flex items-center gap-3 mb-0.5">
+              <span class="font-mono text-xs text-text-muted">{{ post._dir }}</span>
+              <time class="font-mono text-xs text-text-muted">{{ post.date }}</time>
+            </div>
+            <h2 class="font-mono text-sm text-text-primary group-hover:text-cyan transition-colors">
+              {{ post.title }}
+            </h2>
+          </div>
+        </NuxtLink>
+      </li>
+    </ul>
   </NuxtLayout>
 </template>

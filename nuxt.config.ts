@@ -18,6 +18,9 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: 'mod_blog',
+      meta: [
+        { name: 'color-scheme', content: 'dark' },
+      ],
       link: [
         {
           rel: 'preconnect',

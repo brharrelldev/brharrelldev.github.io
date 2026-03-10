@@ -1,5 +1,6 @@
 <template>
-  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+  <!-- contain:strict isolates repaints to this element only -->
+  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden" style="contain: strict;">
     <svg
       class="w-full h-full"
       xmlns="http://www.w3.org/2000/svg"
@@ -41,28 +42,16 @@
             <circle cx="240" cy="280" r="4"/>
           </g>
         </pattern>
-
-        <filter id="pcb-glow" x="-80%" y="-80%" width="260%" height="260%">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="5"   result="wide"/>
-          <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" result="tight"/>
-          <feMerge>
-            <feMergeNode in="wide"/>
-            <feMergeNode in="tight"/>
-            <feMergeNode in="SourceGraphic"/>
-          </feMerge>
-        </filter>
       </defs>
 
       <rect width="100%" height="100%" fill="#0A1628"/>
       <rect width="100%" height="100%" fill="url(#pcb)"/>
 
-      <!-- Animated cyan signal pulses along trace paths -->
-      <line x1="-60" y1="40"  x2="3200" y2="40"  class="pcb-signal pcb-s1" filter="url(#pcb-glow)"/>
-      <line x1="-60" y1="200" x2="3200" y2="200" class="pcb-signal pcb-s2" filter="url(#pcb-glow)"/>
-      <line x1="-60" y1="280" x2="3200" y2="280" class="pcb-signal pcb-s3" filter="url(#pcb-glow)"/>
-      <line x1="-60" y1="120" x2="3200" y2="120" class="pcb-signal pcb-s4" filter="url(#pcb-glow)"/>
-      <polyline points="-60,40 480,40 480,120 800,120 800,200 3200,200" class="pcb-signal pcb-s5" filter="url(#pcb-glow)"/>
-      <polyline points="-60,200 240,200 240,120 560,120 560,40 3200,40" class="pcb-signal pcb-s6" filter="url(#pcb-glow)"/>
+      <!-- Animated cyan signal pulses — 4 signals, no blur filter -->
+      <line x1="-60" y1="40"  x2="3200" y2="40"  class="pcb-signal pcb-s1"/>
+      <line x1="-60" y1="200" x2="3200" y2="200" class="pcb-signal pcb-s2"/>
+      <line x1="-60" y1="120" x2="3200" y2="120" class="pcb-signal pcb-s3"/>
+      <polyline points="-60,40 480,40 480,120 800,120 800,200 3200,200" class="pcb-signal pcb-s4"/>
     </svg>
   </div>
 </template>
@@ -73,14 +62,13 @@
   stroke: #00E5FF;
   stroke-width: 2;
   opacity: 0;
+  will-change: opacity;
 }
 
-.pcb-s1 { stroke-dasharray: 60 3300; stroke-dashoffset: 60;  animation: pcb-travel 13s linear 0s  infinite; }
-.pcb-s2 { stroke-dasharray: 60 3300; stroke-dashoffset: 60;  animation: pcb-travel 10s linear 4s  infinite; }
-.pcb-s3 { stroke-dasharray: 60 3300; stroke-dashoffset: 60;  animation: pcb-travel 16s linear 2s  infinite; }
-.pcb-s4 { stroke-dasharray: 60 3300; stroke-dashoffset: 60;  animation: pcb-travel 11s linear 7s  infinite; }
-.pcb-s5 { stroke-dasharray: 60 3500; stroke-dashoffset: 60;  animation: pcb-travel 18s linear 5s  infinite; }
-.pcb-s6 { stroke-dasharray: 60 3400; stroke-dashoffset: 60;  animation: pcb-travel 14s linear 9s  infinite; }
+.pcb-s1 { stroke-dasharray: 60 3300; stroke-dashoffset: 60; animation: pcb-travel 13s linear 0s infinite; }
+.pcb-s2 { stroke-dasharray: 60 3300; stroke-dashoffset: 60; animation: pcb-travel 10s linear 4s infinite; }
+.pcb-s3 { stroke-dasharray: 60 3300; stroke-dashoffset: 60; animation: pcb-travel 11s linear 7s infinite; }
+.pcb-s4 { stroke-dasharray: 60 3500; stroke-dashoffset: 60; animation: pcb-travel 18s linear 2s infinite; }
 
 @keyframes pcb-travel {
   0%   { stroke-dashoffset:  60; opacity: 0; }

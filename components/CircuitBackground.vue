@@ -44,7 +44,7 @@
         </pattern>
       </defs>
 
-      <rect width="100%" height="100%" fill="#0A1628"/>
+      <rect width="100%" height="100%" fill="#000000"/>
       <rect width="100%" height="100%" fill="url(#pcb)"/>
 
       <!-- Animated cyan signal pulses — 4 signals, no blur filter -->

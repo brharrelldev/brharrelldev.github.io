@@ -11,9 +11,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        bg:      '#0A1628',
-        surface: '#0D1E38',
-        border:  '#1A3560',
+        bg:      '#000000',
+        surface: '#111111',
+        border:  '#222222',
         cyan: {
           DEFAULT: '#00E5FF',
           dim:     '#00B8CC',
@@ -39,15 +39,15 @@ export default {
             '--tw-prose-bold':            '#E8E8F0',
             '--tw-prose-counters':        '#00E5FF',
             '--tw-prose-bullets':         '#00E5FF',
-            '--tw-prose-hr':              '#0D1E38',
+            '--tw-prose-hr':              '#222222',
             '--tw-prose-quotes':          '#A0A0C0',
             '--tw-prose-quote-borders':   '#00E5FF',
             '--tw-prose-captions':        '#8A8AB0',
             '--tw-prose-code':            '#00E5FF',
             '--tw-prose-pre-code':        '#E8E8F0',
-            '--tw-prose-pre-bg':          '#0B1428',
-            '--tw-prose-th-borders':      '#0D1E38',
-            '--tw-prose-td-borders':      '#0D1E38',
+            '--tw-prose-pre-bg':          '#0A0A0A',
+            '--tw-prose-th-borders':      '#222222',
+            '--tw-prose-td-borders':      '#222222',
             fontFamily: "'Inter', sans-serif",
             lineHeight: '1.8',
             'h1, h2, h3, h4': {
@@ -62,7 +62,7 @@ export default {
               borderRadius: '0.2em',
               fontWeight: '400',
             },
-            pre: { border: '1px solid #0D1E38' },
+            pre: { border: '1px solid #222222' },
             blockquote: { fontStyle: 'normal' },
             a: {
               textDecoration: 'none',

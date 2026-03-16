@@ -8,7 +8,7 @@
     >
       <defs>
         <pattern id="pcb" x="0" y="0" width="320" height="320" patternUnits="userSpaceOnUse">
-          <g stroke="#1E4080" stroke-width="1.5" fill="none">
+          <g stroke="#0E2040" stroke-width="1.5" fill="none">
             <line x1="0"   y1="40"  x2="160" y2="40"/>
             <line x1="200" y1="40"  x2="320" y2="40"/>
             <line x1="0"   y1="120" x2="80"  y2="120"/>
@@ -28,7 +28,7 @@
             <polyline points="160,200 200,200 200,280"/>
             <polyline points="240,120 280,120 280,200 320,200"/>
           </g>
-          <g fill="#1E4080" stroke="none">
+          <g fill="#0E2040" stroke="none">
             <circle cx="80"  cy="40"  r="4"/>
             <circle cx="160" cy="40"  r="4"/>
             <circle cx="240" cy="40"  r="4"/>
@@ -44,36 +44,10 @@
         </pattern>
       </defs>
 
-      <rect width="100%" height="100%" fill="#000000"/>
+      <rect width="100%" height="100%" fill="#05080F"/>
       <rect width="100%" height="100%" fill="url(#pcb)"/>
 
-      <!-- Animated cyan signal pulses — 4 signals, no blur filter -->
-      <line x1="-60" y1="40"  x2="3200" y2="40"  class="pcb-signal pcb-s1"/>
-      <line x1="-60" y1="200" x2="3200" y2="200" class="pcb-signal pcb-s2"/>
-      <line x1="-60" y1="120" x2="3200" y2="120" class="pcb-signal pcb-s3"/>
-      <polyline points="-60,40 480,40 480,120 800,120 800,200 3200,200" class="pcb-signal pcb-s4"/>
     </svg>
   </div>
 </template>
 
-<style>
-.pcb-signal {
-  fill: none;
-  stroke: #00E5FF;
-  stroke-width: 2;
-  opacity: 0;
-  will-change: opacity;
-}
-
-.pcb-s1 { stroke-dasharray: 60 3300; stroke-dashoffset: 60; animation: pcb-travel 13s linear 0s infinite; }
-.pcb-s2 { stroke-dasharray: 60 3300; stroke-dashoffset: 60; animation: pcb-travel 10s linear 4s infinite; }
-.pcb-s3 { stroke-dasharray: 60 3300; stroke-dashoffset: 60; animation: pcb-travel 11s linear 7s infinite; }
-.pcb-s4 { stroke-dasharray: 60 3500; stroke-dashoffset: 60; animation: pcb-travel 18s linear 2s infinite; }
-
-@keyframes pcb-travel {
-  0%   { stroke-dashoffset:  60; opacity: 0; }
-  5%   { opacity: 1; }
-  90%  { opacity: 1; }
-  100% { stroke-dashoffset: -3400; opacity: 0; }
-}
-</style>

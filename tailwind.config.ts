@@ -11,7 +11,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        bg:      '#000000',
+        bg:      '#05080F',
         surface: '#111111',
         border:  '#222222',
         cyan: {

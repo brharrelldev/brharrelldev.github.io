@@ -4,7 +4,7 @@ import { sections } from '~/utils/sections'
 // Fetch post counts per section and recent posts
 const { data: allPosts } = await useAsyncData('all-posts', () =>
   queryContent()
-    .where({ _dir: { $in: ['mod-e', 'kv-store', 'thoughts'] } })
+    .where({ _dir: { $in: ['mod-e', 'kv-store', 'thoughts', 'boss_rush_game'] } })
     .sort({ date: -1 })
     .limit(5)
     .find()

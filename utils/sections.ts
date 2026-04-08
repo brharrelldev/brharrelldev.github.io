@@ -24,6 +24,12 @@ export const sections: Section[] = [
     description: 'Unstructured. Notes on systems engineering, neuroscience, tools I use, and whatever else I feel like writing about.',
     tags: [],
   },
+  {
+    slug: 'boss rush game',
+    title: 'boss rush game',
+    description: '2D run and gun boss rush game written in Zig using Raylib. I am going to share my journey',
+    tags: ['zig', 'raylib', 'gamedev']
+  },
 ]
 
 export function getSection(slug: string): Section | undefined {

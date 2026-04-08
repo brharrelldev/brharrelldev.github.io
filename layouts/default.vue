@@ -14,7 +14,7 @@
         </NuxtLink>
         <nav class="mt-4 flex gap-6">
           <NuxtLink to="/" class="font-mono text-xs text-text-secondary hover:text-cyan transition-colors tracking-wider uppercase">index</NuxtLink>
-          <NuxtLink to="/boss rush game" class="font-mono text-xs text-text-secondary hover:text-cyan transition-colors tracking-wider uppercase">index</NuxtLink>
+          <NuxtLink to="/boss_rush_game" class="font-mono text-xs text-text-secondary hover:text-cyan transition-colors tracking-wider uppercase">boss rush game</NuxtLink>
           <NuxtLink to="/mod-e" class="font-mono text-xs text-text-secondary hover:text-cyan transition-colors tracking-wider uppercase">mod-e</NuxtLink>
           <NuxtLink to="/kv-store" class="font-mono text-xs text-text-secondary hover:text-cyan transition-colors tracking-wider uppercase">kv-store</NuxtLink>
           <NuxtLink to="/thoughts" class="font-mono text-xs text-text-secondary hover:text-cyan transition-colors tracking-wider uppercase">thoughts</NuxtLink>

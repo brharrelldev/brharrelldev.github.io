@@ -6,7 +6,7 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       crawlLinks: true,
-      routes: ['/', '/mod-e', '/kv-store', '/boss rush game','/thoughts', '/about'],
+      routes: ['/', '/mod-e', '/kv-store', '/boss_rush_game', '/thoughts', '/about'],
     },
   },
   content: {

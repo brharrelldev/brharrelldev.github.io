@@ -5,14 +5,13 @@
 
       <div class="space-y-6 text-text-secondary text-sm leading-relaxed">
         <p>
-          Systems engineer working at the intersection of event-driven architecture
+          Systems engineer working at the intersection of event-driven architecture,gamedev,
           and neuromorphic computing.
         </p>
         <p>
-          Currently building a neuromorphic simulator grounded in the
+          current working on 2D run and gun game, using a neuromorphic simulator
           <span class="text-text-primary">Lövheim cube of emotion</span> —
-          modeling human emotional states through serotonin, dopamine, and
-          noradrenaline dynamics, with R-STDP as the learning substrate.
+          I want to try to use neuromorphic computing in a practical application.  A game. I do consider this project multi-disciplined. I want to build a game, use a custom neuromorphic simulator based on R-STDP, and build a custom KV store to store the neuromorphic weights.
         </p>
         <p>
           Day job is Go and distributed systems. Side work is Zig.
@@ -41,7 +40,8 @@
 const stack = [
   { label: 'Go', desc: 'event-driven systems' },
   { label: 'Zig', desc: 'low-level, neuromorphic sim' },
-  { label: 'R-STDP', desc: 'reward-modulated plasticity' },
-  { label: 'Lövheim cube', desc: 'emotional state model' },
+  { label: 'Neuromorphic computing', desc: 'reward-modulated plasticity' },
+  { label: 'Raylib', desc: 'for game dev'},
+  { label: 'Spine', desc: 'for game animation'}
 ]
 </script>

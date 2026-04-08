@@ -25,7 +25,7 @@ export const sections: Section[] = [
     tags: [],
   },
   {
-    slug: 'boss rush game',
+    slug: 'boss_rush_game',
     title: 'boss rush game',
     description: '2D run and gun boss rush game written in Zig using Raylib. I am going to share my journey',
     tags: ['zig', 'raylib', 'gamedev']

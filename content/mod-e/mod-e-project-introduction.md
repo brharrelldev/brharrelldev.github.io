@@ -24,7 +24,7 @@
 
 This can also be visualized with the following popular illustration
 
-![[Lövheim_cube_of_emotion.jpg]].
+![Lövheim Cube of Emotion](/images/mod-e/lovheim-cube.jpg)
 
 As you can see the combination of neurotramitters map directly to common moods from human beings. And the goal is to emote a robot based on if it has these current states. However, the key part is to do it as a neuromorphic brain.  And this is where the interesting part of the project comes to life
 
@@ -48,7 +48,7 @@ Representing this computationally can be intensive, and in future blogs I'll tak
 
 So when build a neuromorphic simulator, we are presenting with how our neurons behave. We know that it fires spikes based on a certain threshold.  The "hello, world" of a neuron model is basically Leaky Integrate an Fire (LIF). LiF is a simple neuron model, and its very computationally cheap.  It looks like so
 
-![[Screenshot 2026-03-15 at 7.19.50 PM.png]]
+![LIF equation](/images/mod-e/lif-equation.png)
 
 Basically in a nutshell, I an input constant. E presents leak (what happens when voltage goes over thresshold) and V is voltage. As any electrical system membrane resistence. What is important to note is decay.  When there is not further input, the brain decays back to its resting potential. This is basically to avoid having things like seizures. I will go into this into more details as blog further
 
@@ -56,11 +56,11 @@ Anyway LiF has a few issues for what I want to do.  For one its a single type of
 
 Like LiF the Izhikevich Neuron model is computationally cheap. But it adds more dynamic spiking behavior.  It has regular and fast spiking.  As well as burst and chattering. Each of these expose parameters for how fast or slow the decay rate is per each spike. This is useful if we want to simulate emotional state.  It's a simple dynamical system:
 
-![[Screenshot 2026-03-15 at 7.34.47 PM.png]]
+![Izhikevich dynamical system equations](/images/mod-e/izhikevich-equations.png)
 
 
 This is then basic differential equation.  It also includes the decay parameters:
-![[Screenshot 2026-03-15 at 7.34.57 PM.png]]
+![Izhikevich decay parameters](/images/mod-e/izhikevich-params.png)
 
 
 
@@ -77,7 +77,7 @@ There will be 2 visualization modes:
 
 Terminal based emulation.  This will give things like charts and status for the behavior of the brain. It will show things like spiking populations, neurochemical levels, and other stats for average voltage, spikes, and total synapse count.
 
-![[Screenshot 2026-03-15 at 7.48.23 PM.png]]
+![Terminal visualization](/images/mod-e/terminal-viz.png)
 
 
 And there will be a robot face that will emotion.  It will be displayed using Raylib.  Its still a WIP, so no images available yet.

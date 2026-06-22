@@ -1,7 +1,7 @@
 ---
 title: "Building a KV Store from Scratch in Rust"
 date: "2026-06-22"
-description: "Blog post to chronicle my journey building a KV store in Rust"
+description: "Documenting my journey building a full feature KV store in Rust from scratch""
 tags: ["rust", "systems", "storage"]
 ---
 
@@ -11,7 +11,7 @@ Hello my name is Brandon, thought I'm known through most of my social media as M
 
 In 2013 I worked a very long term contract with Comcast. And there I worked for their cable modem provisioning team. I won't go into too many details. But I found myself dealing with a lot of data related problems. And I found working with data to be really exciting. 
 
-At the time the NoSQL craze was really hitting the industry. And in that I really started to dig deeper into core database fundamentals. I started understanding tradeoffs in data, consistency guarantees, and the shape of data.  I was also dealing with distributed state across clusters. And these became interesting problems to solve.
+At the time the NoSQL craze was really hitting the industry. And in that I really started to dig deeper into core database fundamentals. I started understanding trade-offs in data, consistency guarantees, and the shape of data.  I was also dealing with distributed state across clusters. And these became interesting problems to solve.
 
 This started my obsession with database foundations and internals. It started as a curiosity and it became something I wanted to do. 
 
@@ -19,7 +19,7 @@ This started my obsession with database foundations and internals. It started as
 
 So I said I start my obsession with database internals 13 years ago. But why did it take 13 years to want to build one? 2 words.  Skill issue. 
 
-The first problem was the lack of a programming language. At the time I was working in a strong Java shop, and why it was a more data oriented team (we did a lot of Hadoop and Elastic search a the time), it was still firmly an enterprise position. I also did a lot of Python during this time, and Python wasn't powerful enough to really build a database.  At least not the one I wanted to build.
+The first problem was the lack of a programming language. At the time I was working in a strong Java shop, and why it was a more data oriented team (we did a lot of Hadoop and Elastic search at the time), it was still firmly an enterprise position. I also did a lot of Python during this time, and Python wasn't powerful enough to really build a database.  At least not the one I wanted to build.
 
 I wanted to re-learn C++ since most of my education was in C++. But it felt overwhelming. Eventually I ran into things like LevelDB and RocksDB. I tried to study these code bases, but it felt like I really couldn't understand what was going on.
 
@@ -75,6 +75,9 @@ My plan is to make this.
 
 
 Currently I am in a job search, and I am building a game in Zig from scratch. So lots of things to work on. This KV store work will tie into my game, as I have some ambitious ideas around it. So this is important to my overall mission.
+
+Code for the project is here: https://github.com/brharrelldev/walbash_db/tree/main/walbash-rust 
+
 
 If you have any questions feel free to email me at: ministerofdefense1979@gmail.com
 
